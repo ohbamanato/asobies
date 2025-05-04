@@ -1,0 +1,6 @@
+http://localhost:8080/api/mancala/create
+
+
+### Create room
+POST http://localhost:8080/api/mancala/create
+Content-Type: application/json

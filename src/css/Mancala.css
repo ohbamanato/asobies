@@ -1,0 +1,94 @@
+.board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+.turn-label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0000cc;
+  margin-bottom: 16px;
+}
+
+.board-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.store {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.pits {
+  display: flex;
+  flex-direction: column;
+}
+
+.pit-row {
+  display: flex;
+  justify-content: center;
+  margin: 4px 0;
+}
+
+.pit {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 4px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.pit.red {
+  background-color: #f88;
+}
+
+.pit.blue {
+  background-color: #8cf;
+}
+
+.direction-select {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.direction-select button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.pit.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pit.clickable {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.pit.clickable:hover {
+  transform: scale(1.05);
+}
+
+.pit.highlight {
+  outline: 3px solid gray;
+  outline-offset: -2px;
+}

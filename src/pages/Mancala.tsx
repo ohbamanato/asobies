@@ -1,0 +1,75 @@
+import { useEffect, useState } from "react";
+import "../css/Mancala.css";
+import { io } from "socket.io-client";
+import Board from "../components/Board";
+import { useParams } from "react-router-dom";
+
+const socket = io("http://localhost:8080");
+
+const Mancala = () => {
+  const [data, setData] = useState<number[]>([]);
+  const [turn, setTurn] = useState<number>(0);
+  const [playerNumber, setPlayerNumber] = useState<number | null>(null);
+
+  const { roomID } = useParams();
+
+  const [selectedPit, setSelectedPit] = useState<number | null>(null);
+
+  useEffect(() => {
+    socket.emit("mancalaStart", roomID);
+
+    socket.on("gameState", (state) => {
+      console.log("Game state received:", state);
+      setData(state.gameData.dataArray);
+      setTurn(state.gameData.turn);
+      if (playerNumber === null && typeof state.playerNumber === "number") {
+        setPlayerNumber(state.playerNumber);
+      }
+    });
+
+    socket.on("gameEnd", ({ message, finalData }) => {
+      alert(message);
+      setData(finalData);
+    });
+
+    return () => {
+      socket.off("gameState");
+      socket.off("gameEnd");
+    };
+  }, []);
+
+  const handlePitClick = (pitIndex: number) => {
+    setSelectedPit(pitIndex);
+  };
+
+  const handleDirectionClick = (direction: "left" | "right") => {
+    if (selectedPit !== null) {
+      socket.emit("moveStones", {
+        roomId: roomID,
+        pitIndex: selectedPit,
+        direction,
+      });
+      setSelectedPit(null);
+    }
+  };
+
+  return (
+    <div className="board-container">
+      <Board
+        turn={turn}
+        data={data}
+        handlePitClick={handlePitClick}
+        isReversed={playerNumber === 1}
+        selectedPit={selectedPit}
+      />
+      {selectedPit !== null && (
+        <div className="direction-select">
+          <button onClick={() => handleDirectionClick("left")}>←</button>
+          <button onClick={() => handleDirectionClick("right")}>→</button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Mancala;
