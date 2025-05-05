@@ -41,7 +41,7 @@ export default function setupSocketHandlers(socket, io, rooms, roomsState) {
 
   //石を動かした時の処理
   socket.on("moveStones", ({ roomId, pitIndex, direction }) => {
-    console.log(`Direction: ${direction}, pitIndex: ${pitIndex}`);
+    // console.log(`Direction: ${direction}, pitIndex: ${pitIndex}`);
     const game = roomsState.get(roomId);
     if (!game) return;
 
