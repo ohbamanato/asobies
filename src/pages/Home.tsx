@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const [roomData, setRoomData] = useState<{ roomID: string } | null>(null);
   const navigate = useNavigate();
   const [roomIdToJoin, setRoomIdToJoin] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +13,6 @@ const Home = () => {
         "http://localhost:8080/api/mancala/create"
       );
       const room = response.data;
-      setRoomData(room);
       navigate(`/waiting/${room.roomID}`);
     } catch (error) {
       console.error("ルーム作成エラー:", error);
