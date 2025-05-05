@@ -4,7 +4,7 @@ import setupSocketHandlers from "./handlers.mjs";
 export default function initSocket(httpServer) {
   const io = new Server(httpServer, {
     cors: {
-      origin: "http://localhost:5173",
+      origin: "https://asobies.onrender.com",
       methods: ["GET", "POST"],
     },
   });
