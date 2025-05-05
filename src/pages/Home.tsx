@@ -21,7 +21,7 @@ const Home = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axios.get(`/mancala/join/${roomIdToJoin}`);
+      const response = await axios.get(`/api/mancala/join/${roomIdToJoin}`);
       console.log(response);
       if (response.data) {
         navigate(`/waiting/${roomIdToJoin}`);
