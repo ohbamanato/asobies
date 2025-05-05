@@ -8,16 +8,16 @@ const WaitingRoom = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const socket = io("http://localhost:8080"); // useEffect内でsocket作成
+    const socket = io(import.meta.env.VITE_SOCKET_ENDPOINT || "/");
     socket.emit("joinRoom", roomID);
 
     socket.on("startGame", ({ message }) => {
-      console.log(message); // サーバーから来たメッセージ表示
+      console.log(message);
       navigate(`/mancala/${roomID}`);
     });
 
     return () => {
-      socket.disconnect(); // 必ずdisconnect！
+      socket.disconnect();
     };
   }, [roomID, navigate]);
 

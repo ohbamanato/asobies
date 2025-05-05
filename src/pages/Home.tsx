@@ -9,9 +9,7 @@ const Home = () => {
 
   const handleCreateRoom = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:8080/api/mancala/create"
-      );
+      const response = await axios.post("/api/mancala/create");
       const room = response.data;
       navigate(`/waiting/${room.roomID}`);
     } catch (error) {
@@ -23,9 +21,7 @@ const Home = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axios.get(
-        `http://localhost:8080/api/mancala/join/${roomIdToJoin}`
-      );
+      const response = await axios.get(`/mancala/join/${roomIdToJoin}`);
       console.log(response);
       if (response.data) {
         navigate(`/waiting/${roomIdToJoin}`);

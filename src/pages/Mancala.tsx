@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import Board from "../components/Board";
 import { useParams } from "react-router-dom";
 
-const socket = io("http://localhost:8080");
+const socket = io(import.meta.env.VITE_SOCKET_ENDPOINT || "/");
 
 const Mancala = () => {
   const [data, setData] = useState<number[]>([]);
