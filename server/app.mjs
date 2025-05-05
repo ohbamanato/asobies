@@ -7,7 +7,6 @@ import { createServer } from "http";
 import apiRoutes from "./api-routes/index.mjs";
 import "./helpers/db.mjs";
 import initSocket from "./socket/index.mjs";
-import path from "path";
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -20,11 +19,6 @@ app.use(cors());
 
 // APIルート
 app.use("/api", apiRoutes);
-
-app.get(/.*/, (req, res) => {
-  const indexHtml = path.resolve("dist", "index.html");
-  res.sendFile(indexHtml);
-});
 
 // 404
 app.use(function (req, res) {
