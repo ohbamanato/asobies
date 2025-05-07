@@ -10,6 +10,7 @@ const Mancala = () => {
   const [data, setData] = useState<number[]>([]);
   const [turn, setTurn] = useState<number>(0);
   const [playerNumber, setPlayerNumber] = useState<number | null>(null);
+  const [opponentLeft, setOpponentLeft] = useState(false);
 
   const { roomID } = useParams();
 
@@ -32,9 +33,14 @@ const Mancala = () => {
       setData(finalData);
     });
 
+    socket.on("opponentDisconnected", () => {
+      setOpponentLeft(true);
+    });
+
     return () => {
       socket.off("gameState");
       socket.off("gameEnd");
+      socket.off("opponentDisconnected");
     };
   }, []);
 
@@ -66,6 +72,14 @@ const Mancala = () => {
         <div className="direction-select">
           <button onClick={() => handleDirectionClick("left")}>←</button>
           <button onClick={() => handleDirectionClick("right")}>→</button>
+        </div>
+      )}
+      {opponentLeft && (
+        <div className="opponent-left">
+          <p>相手が退出しました。</p>
+          <button onClick={() => (window.location.href = "/")}>
+            メニューへ戻る
+          </button>
         </div>
       )}
     </div>

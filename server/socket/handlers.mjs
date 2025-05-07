@@ -1,3 +1,5 @@
+import Room from "../models/room.mjs";
+
 export default function setupSocketHandlers(socket, io, rooms, roomsState) {
   //ルーム入室時の処理
   socket.on("joinRoom", (roomId) => {
@@ -90,5 +92,27 @@ export default function setupSocketHandlers(socket, io, rooms, roomsState) {
     });
   });
 
-  socket.on("disconnect", () => {});
+  socket.on("disconnect", () => {
+    console.log("User disconnected:", socket.id);
+    for (const roomId in rooms) {
+      const players = rooms[roomId];
+      const index = players.indexOf(socket.id);
+      if (index !== -1) {
+        players.splice(index, 1);
+
+        // 相手に通知
+        socket.to(roomId).emit("opponentDisconnected");
+
+        // ルーム情報が空になったら削除
+        if (players.length === 0) {
+          delete rooms[roomId];
+          roomsState.delete(roomId);
+
+          Room.deleteOne({ roomId }).exec();
+        }
+
+        break;
+      }
+    }
+  });
 }

@@ -93,3 +93,20 @@
   outline: 3px solid gray;
   outline-offset: -2px;
 }
+
+.opponent-left {
+  margin-top: 1rem;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.opponent-left button {
+  margin-top: 0.5rem;
+  padding: 8px 16px;
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
