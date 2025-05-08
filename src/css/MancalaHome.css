@@ -1,0 +1,52 @@
+.lobby-container {
+  text-align: center;
+  padding: 2rem;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.lobby-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.lobby-subtitle {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.rule-images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.rule-images img {
+  width: 30%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.create-button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.join-form h3 {
+  margin-bottom: 0.5rem;
+}
+
+.join-form input {
+  padding: 0.5rem;
+  width: 200px;
+  margin-right: 1rem;
+}
+
+.join-form button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}

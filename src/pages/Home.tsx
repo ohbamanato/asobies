@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../css/MancalaHome.css";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -36,10 +37,22 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h1>マンカラ オンライン対戦</h1>
-      <button onClick={handleCreateRoom}>ルームを作成</button>
-      <form onSubmit={handleJoinRoomCheck}>
+    <div className="lobby-container">
+      <h1 className="lobby-title">マンカラ オンライン対戦</h1>
+      <p className="lobby-subtitle">
+        直感と戦略が交差する、アフリカ生まれの石取りバトル
+      </p>
+
+      <div className="rule-images">
+        <img src="src/images/rule1.png" alt="マンカラの初期配置" />
+        <img src="src/images/rule1.png" alt="マンカラの石のまき方" />
+      </div>
+
+      <button className="create-button" onClick={handleCreateRoom}>
+        ルームを作成
+      </button>
+
+      <form className="join-form" onSubmit={handleJoinRoomCheck}>
         <h3>ルームに参加</h3>
         <input
           type="text"
