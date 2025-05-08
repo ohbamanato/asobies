@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../css/MancalaHome.css";
 import rule1 from "../images/rule1.png";
-import rule2 from "../imgages/rule2.png";
+import rule2 from "../images/rule2.png";
 
 const Home = () => {
   const navigate = useNavigate();
