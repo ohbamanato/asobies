@@ -46,8 +46,8 @@ const Home = () => {
       </p>
 
       <div className="rule-images">
-        <img src={rule1} alt="ルール画像1" />
-        <img src={rule2} alt="ルール画像2" />
+        <img src={rule1} alt="rule1" />
+        <img src={rule2} alt="rule2" />
       </div>
 
       <button className="create-button" onClick={handleCreateRoom}>
