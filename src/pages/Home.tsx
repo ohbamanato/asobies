@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../css/MancalaHome.css";
+import rule1 from "../images/rule1.png";
+import rule2 from "../imgages/rule2.png";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -44,8 +46,8 @@ const Home = () => {
       </p>
 
       <div className="rule-images">
-        <img src="src/images/rule1.png" alt="マンカラの初期配置" />
-        <img src="src/images/rule1.png" alt="マンカラの石のまき方" />
+        <img src={rule1} alt="ルール画像1" />
+        <img src={rule2} alt="ルール画像2" />
       </div>
 
       <button className="create-button" onClick={handleCreateRoom}>
