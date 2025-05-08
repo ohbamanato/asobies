@@ -1,54 +1,44 @@
-# React + TypeScript + Vite
+# Asobies 🎲
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Asobies** は、実際に存在するボードゲームをオンライン上で気軽に楽しめるようにすることを目的とした個人開発プロジェクトです。
 
-Currently, two official plugins are available:
+現在は「まんから（Mancala）」をオンラインでプレイできます。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 公開URL
 
-## Expanding the ESLint configuration
+👉 [https://asobies.onrender.com](https://asobies.onrender.com)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🎮 現在公開中のボードゲーム
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- まんから（Mancala）  
+  └ 時計回り・反時計回りを選べる独自ルールでプレイ可能！
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ 使用技術
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| 分類             | 使用技術                        |
+|------------------|-------------------------------|
+| フロントエンド   | React + TypeScript, Vite      |
+| バックエンド     | Node.js (ESM形式 `.mjs`)      |
+| デプロイ・ホスティング | [Render](https://render.com/)         |
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🚧 今後の開発予定
+
+- AWSによるインフラ構築（Renderからの移行を視野に）
+- 独自ドメインの取得とSSL対応
+- 他のボードゲームの追加
+- オンライン対戦機能の改善（マッチングやリアルタイム通信など）
+
+## 📸 スクリーンショット
+<img width="1512" alt="スクリーンショット 2025-05-09 0 25 03" src="https://github.com/user-attachments/assets/4659c0e2-35f8-4228-9fe3-34b7e175c869" />
+<img width="1512" alt="スクリーンショット 2025-05-09 0 25 14" src="https://github.com/user-attachments/assets/e1788119-3bb5-4341-b5b7-96ab44c34226" />
+
+
+## 📝 開発の背景
+
+「身近なボードゲームをオンラインで手軽に遊びたい」という思いからスタートしたプロジェクトです。  
+一人で少しずつ開発を進めており、今後も継続的に機能追加や改善を行っていく予定です。
+
+## 💡 アイデア・協力
+
+フィードバックや提案、開発の協力も大歓迎です！お気軽に Issue や Pull Request を送ってください。
+
