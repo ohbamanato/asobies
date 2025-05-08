@@ -24,6 +24,7 @@ const WaitingRoom = () => {
   return (
     <div>
       <p>ルームID: {roomID}</p>
+      <p>ルームIDを相手に教えてください</p>
     </div>
   );
 };
