@@ -6,7 +6,7 @@
 
 ## 公開URL
 
-👉 [https://asobies.onrender.com](https://asobies.onrender.com)
+[https://asobies.onrender.com](https://asobies.onrender.com)
 
 ## 現在公開中のボードゲーム
 
