@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "node server/app.mjs",
+    "start": "npm run build && node server/app.mjs",
+    "start:prod": "node server/app.mjs",
     "dev": "run-p dev:server dev:client",
     "dev:server": "nodemon server/app.mjs",
     "dev:client": "vite",

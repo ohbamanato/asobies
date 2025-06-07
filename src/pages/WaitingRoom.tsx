@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { io } from "socket.io-client";
 import { useNavigate } from "react-router-dom";
+import "../css/WaitingRoom.css";
 
 const WaitingRoom = () => {
   const { roomID } = useParams();
@@ -22,9 +23,29 @@ const WaitingRoom = () => {
   }, [roomID, navigate]);
 
   return (
-    <div>
-      <p>ルームID: {roomID}</p>
-      <p>ルームIDを相手に教えてください</p>
+    <div className="waiting-container">
+      <div className="waiting-content">
+        <h1 className="waiting-title">プレイヤーを待機中...</h1>
+        
+        <div className="room-info">
+          <p className="room-id">ルームID: {roomID}</p>
+          <p className="room-instruction">
+            このルームIDを相手に教えて、参加してもらってください
+          </p>
+        </div>
+        
+        <div className="loading-animation">
+          <div className="loading-dots">
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+          </div>
+        </div>
+        
+        <p className="waiting-message">
+          相手プレイヤーが参加すると、自動的にゲームが開始されます
+        </p>
+      </div>
     </div>
   );
 };
