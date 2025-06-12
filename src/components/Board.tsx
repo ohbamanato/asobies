@@ -57,7 +57,7 @@ const Board = ({
   };
 
   return (
-    <div className="board-container">
+    <>
       <div className="turn-indicator">
         {(isReversed ? turn === 1 : turn === 0) ? (
           <h2 className="your-turn">あなたのターンです</h2>
@@ -65,24 +65,26 @@ const Board = ({
           <h2 className="opponent-turn">相手のターンです</h2>
         )}
       </div>
-      <div className="board-row">
-        <div className="store">{isReversed ? StoreRight : StoreLeft}</div>
-        <div className="pits">
-          {isReversed ? (
-            <>
-              {renderPitRow(PitPlayer1, 1, "blue", true, false)}
-              {renderPitRow(PitPlayer2, 8, "red", false, true)}
-            </>
-          ) : (
-            <>
-              {renderPitRow(PitPlayer2, 8, "red", true, false)}
-              {renderPitRow(PitPlayer1, 1, "blue", false, true)}
-            </>
-          )}
+      <div className="game-area">
+        <div className="board-row">
+          <div className="store">{isReversed ? StoreRight : StoreLeft}</div>
+          <div className="pits">
+            {isReversed ? (
+              <>
+                {renderPitRow(PitPlayer1, 1, "blue", true, false)}
+                {renderPitRow(PitPlayer2, 8, "red", false, true)}
+              </>
+            ) : (
+              <>
+                {renderPitRow(PitPlayer2, 8, "red", true, false)}
+                {renderPitRow(PitPlayer1, 1, "blue", false, true)}
+              </>
+            )}
+          </div>
+          <div className="store">{isReversed ? StoreLeft : StoreRight}</div>
         </div>
-        <div className="store">{isReversed ? StoreLeft : StoreRight}</div>
       </div>
-    </div>
+    </>
   );
 };
 

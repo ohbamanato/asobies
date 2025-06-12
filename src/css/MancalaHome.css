@@ -156,22 +156,22 @@
   .lobby-container {
     padding: 1rem;
   }
-  
+
   .rule-images {
     gap: 1rem;
     margin-bottom: 2rem;
   }
-  
+
   .rule-images img {
     max-width: 250px;
   }
-  
+
   .create-button {
     padding: 0.875rem 1.5rem;
     font-size: 1rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .join-form {
     padding: 1.5rem;
     margin: 0 1rem;
@@ -182,21 +182,21 @@
   .lobby-container {
     padding: 1rem 0.5rem;
   }
-  
+
   .lobby-subtitle {
     margin-bottom: 2rem;
   }
-  
+
   .rule-images {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
-  
+
   .rule-images img {
     max-width: 200px;
   }
-  
+
   .join-form {
     margin: 0 0.5rem;
     padding: 1rem;
