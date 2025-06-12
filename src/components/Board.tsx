@@ -23,7 +23,7 @@ const Board = ({
     startIndex: number,
     color: string,
     reverse: boolean,
-    isPlayerSide: boolean // ←追加
+    isPlayerSide: boolean
   ) => {
     const displayPits = reverse ? [...pits].reverse() : pits;
     return (
@@ -57,7 +57,7 @@ const Board = ({
   };
 
   return (
-    <div className="board-container">
+    <div>
       <div className="turn-indicator">
         {(isReversed ? turn === 1 : turn === 0) ? (
           <h2 className="your-turn">あなたのターンです</h2>
